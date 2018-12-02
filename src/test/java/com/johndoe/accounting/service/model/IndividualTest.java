@@ -26,8 +26,8 @@ public class IndividualTest {
     @Before
     public void setUp() throws Exception {
         when(location.getState()).thenReturn("TX");
-        when(location.getCity()).thenReturn("Plano");
-        when(location.getZipCode()).thenReturn(75025);
+        when(location.getCity()).thenReturn("Frisco");
+        when(location.getZipCode()).thenReturn(75022);
         when(location.getAddress()).thenReturn("address 123");
 
         individual = new Individual();
@@ -35,19 +35,19 @@ public class IndividualTest {
         individual.setType(Type.Individual);
         individual.setBirthDate(LocalDate.of(1990, 02, 03));
         individual.setTitle("Doctor");
-        individual.setFirstName("Nebil");
-        individual.setLastName("Gezaw");
+        individual.setFirstName("House");
+        individual.setLastName("Greg");
         individual.setLocation(location);
     }
 
     @Test
     public void getFirstName() throws Exception {
-        assertEquals("Nebil", individual.getFirstName());
+        assertEquals("House", individual.getFirstName());
     }
 
     @Test
     public void getLastName() throws Exception {
-        assertEquals("Gezaw", individual.getLastName());
+        assertEquals("Greg", individual.getLastName());
     }
 
     @Test
@@ -73,8 +73,8 @@ public class IndividualTest {
     @Test
     public void getLocation(){
         assertEquals("TX", individual.getLocation().getState());
-        assertEquals("Plano", individual.getLocation().getCity());
-        assertEquals(75025, individual.getLocation().getZipCode());
+        assertEquals("Frisco", individual.getLocation().getCity());
+        assertEquals(75022, individual.getLocation().getZipCode());
         assertEquals("address 123", individual.getLocation().getAddress());
         verify(location, times(1)).getState();
         verify(location, times(1)).getCity();

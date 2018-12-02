@@ -51,7 +51,7 @@ public class ClientTest {
         client.setType(Type.Business);
         when(location.getState()).thenReturn("TX");
         when(location.getCity()).thenReturn("Plano");
-        when(location.getZipCode()).thenReturn(75025);
+        when(location.getZipCode()).thenReturn(75099);
         when(location.getAddress()).thenReturn("address 123");
         client.setLocation(location);
     }
@@ -70,7 +70,7 @@ public class ClientTest {
     public void getLocation(){
         assertEquals("TX", client.getLocation().getState());
         assertEquals("Plano", client.getLocation().getCity());
-        assertEquals(75025, client.getLocation().getZipCode());
+        assertEquals(75099, client.getLocation().getZipCode());
         assertEquals("address 123", client.getLocation().getAddress());
         verify(location, times(1)).getState();
         verify(location, times(1)).getCity();

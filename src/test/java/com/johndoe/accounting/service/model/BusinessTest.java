@@ -23,8 +23,8 @@ public class BusinessTest {
     @Before
     public void setUp() throws Exception {
         when(location.getState()).thenReturn("TX");
-        when(location.getCity()).thenReturn("Plano");
-        when(location.getZipCode()).thenReturn(75025);
+        when(location.getCity()).thenReturn("Wylie");
+        when(location.getZipCode()).thenReturn(75085);
         when(location.getAddress()).thenReturn("address 123");
 
         business = new Business();
@@ -58,8 +58,8 @@ public class BusinessTest {
     @Test
     public void getLocation(){
         assertEquals("TX", business.getLocation().getState());
-        assertEquals("Plano", business.getLocation().getCity());
-        assertEquals(75025, business.getLocation().getZipCode());
+        assertEquals("Wylie", business.getLocation().getCity());
+        assertEquals(75085, business.getLocation().getZipCode());
         assertEquals("address 123", business.getLocation().getAddress());
         verify(location, times(1)).getState();
         verify(location, times(1)).getCity();

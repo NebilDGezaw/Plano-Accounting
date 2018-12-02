@@ -17,6 +17,7 @@ public class LocationTest {
         location.setCity("plano");
         location.setState("TX");
         location.setZipCode(75074);
+        location.setId(3L);
     }
 
     @Test
@@ -37,6 +38,11 @@ public class LocationTest {
     @Test
     public void getAddress() throws Exception {
         assertEquals("123 address", location.getAddress());
+    }
+
+    @Test
+    public void getId() throws Exception {
+        assertEquals(3, location.getId());
     }
 
 }
