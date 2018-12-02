@@ -1,6 +1,7 @@
 package com.johndoe.accounting.service.controller;
 
 import com.johndoe.accounting.service.clientType.Type;
+import com.johndoe.accounting.service.exceptions.InvalidClientInputException;
 import com.johndoe.accounting.service.model.Client;
 import com.johndoe.accounting.service.request.ClientRequest;
 import com.johndoe.accounting.service.service.ClientService;
@@ -19,7 +20,7 @@ public class ClientController {
     private ClientService clientService;
 
     @PostMapping("/add")
-    public void addClient(@RequestBody ClientRequest clientRequest){
+    public void addClient(@RequestBody ClientRequest clientRequest)throws InvalidClientInputException{
         clientService.addclient(clientRequest);
     }
 
@@ -44,7 +45,7 @@ public class ClientController {
     }
 
     @PutMapping("/update/{id}")
-    public void updateClient(@RequestBody ClientRequest clientRequest, @PathVariable long id){
+    public void updateClient(@RequestBody ClientRequest clientRequest, @PathVariable long id)throws InvalidClientInputException{
         clientService.updateClient(clientRequest, id);
     }
 }

@@ -1,6 +1,7 @@
 package com.johndoe.accounting.service.service;
 
 import com.johndoe.accounting.service.clientType.Type;
+import com.johndoe.accounting.service.exceptions.InvalidClientInputException;
 import com.johndoe.accounting.service.factory.ClientFactory;
 import com.johndoe.accounting.service.factory.ClientFactoryProducer;
 import com.johndoe.accounting.service.model.Client;
@@ -26,7 +27,7 @@ public class ClientService {
     private LocationRepository locationRepository;
 
 
-    public void addclient(ClientRequest clientRequest){
+    public void addclient(ClientRequest clientRequest)throws InvalidClientInputException{
         ClientFactoryProducer clientFactoryProducer = new ClientFactoryProducer();
         ClientFactory clientFactory = clientFactoryProducer.createFactory(Type.valueOf(clientRequest.getType()));
         Client client = clientFactory.createClient(clientRequest);
@@ -60,7 +61,7 @@ public class ClientService {
         return clients;
     }
 
-    public void updateClient(ClientRequest clientRequest, long id){
+    public void updateClient(ClientRequest clientRequest, long id)throws InvalidClientInputException{
         clientRequest.setId(id);
         ClientFactoryProducer clientFactoryProducer = new ClientFactoryProducer();
         ClientFactory clientFactory = clientFactoryProducer.createFactory(Type.valueOf(clientRequest.getType()));

@@ -21,7 +21,7 @@ public class ClientValidator {
 
     private void validateFirstName()throws InvalidClientInputException{
         try {
-            if (!clientRequest.getFirstName().matches("[a-zA-Z]+") && clientRequest.getType().equals("Individual")) {
+            if (clientRequest.getType().equals("Individual") &&(!clientRequest.getFirstName().matches("[a-zA-Z]+")) ) {
                 throw new InvalidClientInputException("Invalid input for first name");
             }
         }
@@ -33,7 +33,7 @@ public class ClientValidator {
 
     private void validateLastName()throws InvalidClientInputException{
         try {
-            if (!clientRequest.getLastName().matches("[a-zA-Z]+") && clientRequest.getType().equals("Individual")) {
+            if (clientRequest.getType().equals("Individual")&&(!clientRequest.getLastName().matches("[a-zA-Z]+"))) {
                 throw new InvalidClientInputException("Invalid input for last name");
             }
         }
@@ -46,9 +46,11 @@ public class ClientValidator {
     private void validateAge()throws InvalidClientInputException{
 
         try {
-            Period period = Period.between(clientRequest.getBirthDate(), LocalDate.now());
-            if (clientRequest.getType().equals("Individual") && period.getYears() < 18) {
-                throw new InvalidClientInputException("Person is underage!");
+            if(clientRequest.getBirthDate()!=null) {
+                Period period = Period.between(clientRequest.getBirthDate(), LocalDate.now());
+                if (period.getYears() < 18) {
+                    throw new InvalidClientInputException("Person is underage!");
+                }
             }
         }
         catch (InvalidClientInputException exception){
@@ -78,5 +80,5 @@ public class ClientValidator {
             throw new InvalidClientInputException(exceptionMessages.toString().trim());
         }
     }
-    
+
 }
