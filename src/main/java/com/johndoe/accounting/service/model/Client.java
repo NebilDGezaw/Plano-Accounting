@@ -13,7 +13,7 @@ import javax.persistence.*;
 public abstract class Client {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", updatable = false, nullable = false)
     private long id;
 
