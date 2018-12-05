@@ -47,13 +47,7 @@ public class ClientService {
     }
 
     public List<Client> getAllClients(){
-        List<Client> clients = new ArrayList<>();
-
-        for(Client client: clientRepository.findAll()){
-            clients.add(client);
-        }
-
-        return clients;
+        return (List<Client>)clientRepository.findAll();
     }
 
     public void updateClient(ClientRequest clientRequest, long id)throws InvalidClientInputException{
