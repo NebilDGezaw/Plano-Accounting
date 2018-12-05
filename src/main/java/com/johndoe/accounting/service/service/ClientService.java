@@ -43,12 +43,7 @@ public class ClientService {
     }
 
     public List<Client> getAllClientsByType(Type type){
-        List<Client> clients = new ArrayList<>();
-        for(Client client: clientRepository.findByType(type)){
-            clients.add(client);
-        }
-
-        return clients;
+        return clientRepository.findByType(type);
     }
 
     public List<Client> getAllClients(){
@@ -68,6 +63,8 @@ public class ClientService {
         Client client = clientFactory.createClient(clientRequest);
         client.setId(id);
         clientRepository.save(client);
+        
+
     }
 
     public void deleteClient(long id){

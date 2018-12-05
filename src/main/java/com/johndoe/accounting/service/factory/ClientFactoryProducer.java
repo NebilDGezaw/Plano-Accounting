@@ -9,6 +9,7 @@ import java.util.Map;
  * Created by nebil on 11/30/18.
  */
 public class ClientFactoryProducer {
+
     Map<Type, ClientFactory> factoryMap = new HashMap<>();
     {
         factoryMap.put(Type.Individual, new IndividualClientFactory());
@@ -16,6 +17,7 @@ public class ClientFactoryProducer {
     }
 
     public ClientFactory createFactory(Type type){
+
         return factoryMap.get(type);
     }
 }

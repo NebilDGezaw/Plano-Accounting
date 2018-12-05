@@ -19,6 +19,7 @@ public class BusinessClientFactory extends ClientFactory {
         Business business = new Business();
         business.setType(Type.Business);
         clientValidator.validate();
+
         business.setId(clientRequest.getId());
         business.setBusinessName(clientRequest.getBusinessName());
         business.setNumberOfEmployee(clientRequest.getNumberOfEmployee());

@@ -19,7 +19,7 @@ public class ClientController {
     @Autowired
     private ClientService clientService;
 
-    @PostMapping("/add")
+    @PostMapping("")
     public void addClient(@RequestBody ClientRequest clientRequest)throws InvalidClientInputException{
         clientService.addclient(clientRequest);
     }
@@ -29,22 +29,22 @@ public class ClientController {
         return clientService.getClientById(id);
     }
 
-    @GetMapping("/type/{type}")//url needs to be fixed
+    @GetMapping("type/{type}")
     public List<Client> getAllClientsByType(@PathVariable(value = "type") Type type){
         return clientService.getAllClientsByType(type);
     }
 
-    @GetMapping("/getall")
+    @GetMapping("")
     public List<Client> getAllClients(){
         return clientService.getAllClients();
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public void deleteClient(@PathVariable long id){
         clientService.deleteClient(id);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public void updateClient(@RequestBody ClientRequest clientRequest, @PathVariable long id)throws InvalidClientInputException{
         clientService.updateClient(clientRequest, id);
     }
