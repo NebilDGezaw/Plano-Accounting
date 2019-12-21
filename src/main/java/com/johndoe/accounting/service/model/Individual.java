@@ -18,6 +18,12 @@ public class Individual extends Client{
     private LocalDate birthDate;
     private String title;
 
+    public static void main(String[] args) {
+
+
+        System.out.println("Aman firts git project");
+    }
+
     public String getFirstName() {
         return firstName;
     }
